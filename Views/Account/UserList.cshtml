@@ -1,0 +1,39 @@
+﻿@model List<AuthApp.Models.ViewModel.UserWithRolesVM>
+
+<div class="container d-flex justify-content-center">
+    <h1>List of users</h1>
+
+</div>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Current Role</th>
+                        <th>Add Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var user in Model)
+                    {
+                        <tr>
+                            <th>@user.Id</th>
+                            <th>@user.Username</th>
+                            <th>@user.Roles</th>
+                            <th>
+                                <a asp-action="AssignRole" asp-controller="Account" class="btn btn-primary" asp-route-id="@user.Id">Add Role</a>
+                            </th>
+
+                        </tr>
+                    }
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</div>

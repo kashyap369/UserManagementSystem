@@ -1,0 +1,24 @@
+﻿@model AuthApp.Models.ViewModel.RegisterVM
+
+
+<div class="container">
+    <form method="post">
+        <div class="row d-flex flex-column justify-content-center">
+            <div class="col-6 mb-3">
+                <label class="form-label">Username</label>
+                <input class="form-control" asp-for=Username type="text" />
+            </div>
+            <div class="col-6 mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" type="email" asp-for="Email" />
+            </div>
+            <div class="col-6 mb-3">
+                <label class="form-label">Password</label>
+                <input class="form-control" type="text" asp-for="Password"/>
+            </div>
+            <button class="btn btn-success col-6" type="submit">Register Now</button>
+
+        </div>
+
+    </form>
+</div>

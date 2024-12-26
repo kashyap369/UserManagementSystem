@@ -1,0 +1,13 @@
+﻿@model AuthApp.Models.ViewModel.AddRoleVM
+<div class="container">
+    <form method="post">
+        <div class="row d-flex flex-column justify-content-center">
+            <div class="mb-3 col-6">
+                <label class="form-label">Enter Role</label>
+                <input class="form-control" asp-for="RoleName" type="text" />
+            </div>
+
+            <button class="col-6 btn btn-primary" type="submit" asp-action="AddRoles" asp-controller="Account">Add Role</button>
+        </div>
+    </form>
+</div>

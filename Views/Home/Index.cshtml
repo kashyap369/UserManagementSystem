@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <form method="post"  >
+        <div class="row d-flex flex-column justify-content-center">
+            <div class="mb-3 col-6">
+                <label class="form-label">Username</label>
+                <input class="form-control" type="text" />
+            </div>
+            <div class="mb-3 col-6">
+                <label class="form-label">Password</label>
+                <input class="form-control" type="text" />
+            </div>
+            <button class="btn btn-primary col-6 mb-3" type="submit">Login Now</button>
+            <a class="btn col-6 btn-dark" asp-action="Register" asp-controller="Account">Register Now</a>
+        </div>
+    </form>
+</div>
