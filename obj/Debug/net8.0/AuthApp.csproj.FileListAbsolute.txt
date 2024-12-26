@@ -146,3 +146,4 @@ C:\Users\shubh\source\repos\AuthApp\AuthApp\obj\Debug\net8.0\refint\AuthApp.dll
 C:\Users\shubh\source\repos\AuthApp\AuthApp\obj\Debug\net8.0\AuthApp.pdb
 C:\Users\shubh\source\repos\AuthApp\AuthApp\obj\Debug\net8.0\AuthApp.genruntimeconfig.cache
 C:\Users\shubh\source\repos\AuthApp\AuthApp\obj\Debug\net8.0\ref\AuthApp.dll
+C:\Users\shubh\source\repos\AuthApp\AuthApp\obj\Debug\net8.0\AuthApp.sourcelink.json

@@ -1,4 +1,5 @@
 ﻿using AuthApp.Models.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +10,15 @@ namespace AuthApp.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly SignInManager<IdentityUser> signInManager;
 
-        public Account(UserManager<IdentityUser> userManager,RoleManager<IdentityRole> roleManager)
+       
+
+        public Account(UserManager<IdentityUser> userManager,RoleManager<IdentityRole> roleManager,SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
+            this.signInManager = signInManager;
         }
 
         [HttpGet]
@@ -94,6 +99,7 @@ namespace AuthApp.Controllers
             var totalroles = await roleManager.Roles.ToListAsync();
             return View(totalroles);
         }
+        [Authorize]
         [HttpGet]
         [HttpGet]
         public async Task<IActionResult> UserList()
@@ -177,6 +183,23 @@ namespace AuthApp.Controllers
 
 
         }
+        public async Task<IActionResult> Login(LoginVm vm)
+        {
+            var signinResult = await signInManager.PasswordSignInAsync(vm.Username, vm.Password, false, false);
+
+            if (signinResult != null && signinResult.Succeeded)
+            {
+                if (!string.IsNullOrWhiteSpace(vm.ReturnUrl))
+                {
+                    return Redirect(vm.ReturnUrl);
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+
+           
+        }
+        
 
     }
 }

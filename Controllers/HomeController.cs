@@ -1,4 +1,5 @@
 using AuthApp.Models;
+using AuthApp.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -13,9 +14,10 @@ namespace AuthApp.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string returnUrl)
         {
-            return View();
+            var model = new LoginVm { ReturnUrl = returnUrl };
+            return View(model);
         }
 
         public IActionResult Privacy()
